@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "847427569641",
+    "project_id": "automobile-doctor-d35f1",
+    "storage_bucket": "automobile-doctor-d35f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847427569641:android:45bbb5267fe6101d40ad78",
+        "android_client_info": {
+          "package_name": "com.example.automobile_doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847427569641-ppn6ll3o23bah9srrq6519ne0moi80tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFh1UE8VTPnqIJq_VGl9gW_yDT_uc8oLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847427569641-ppn6ll3o23bah9srrq6519ne0moi80tg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
