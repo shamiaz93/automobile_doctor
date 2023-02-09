@@ -13,8 +13,8 @@ class LoginPage extends StatefulWidget {
 final _auth = FirebaseAuth.instance;
 
 class _LoginScreenState extends State<LoginPage> {
-  String email;
-  String password;
+  String email = '';
+  String password = '';
   bool showSpinner = false;
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginPage> {
                   },
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'Enter your password',
+                    hintText: 'Enter your email',
                   )),
               SizedBox(
                 height: 8.0,
