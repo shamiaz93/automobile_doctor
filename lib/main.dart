@@ -5,24 +5,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'splashScr.dart';
 
 void main() async {
-  //For Android
-  /* WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(); */
-
-//For Web
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
-        apiKey: "AIzaSyCx3kYaWH2ys1zmnPuMKpasViDYV7aa6Oo",
-        projectId: "automobile-doctor-d35f1",
-        messagingSenderId: "847427569641",
-        appId: "1:847427569641:web:526dbda5b630e4f540ad78"),
-  );
-
-  runApp(MyApp());
+  await Firebase.initializeApp();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
