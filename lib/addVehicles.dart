@@ -1,4 +1,5 @@
 // ignore: depend_on_referenced_packages
+import 'package:automobile_doctor/homeScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // ignore: depend_on_referenced_packages
 import "package:firebase_core/firebase_core.dart";
@@ -10,11 +11,45 @@ class AddVehicles extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Automobiles'),
+          title: Text('Automobiles'),
         ),
         body: Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: AddVehiclesFormComponent()));
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Column(
+            children: <Widget>[
+              Expanded(child: AddVehiclesFormComponent()),
+              Expanded(
+                  child: StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance
+                    .collection('driver_automobiles')
+                    .where("user_email",
+                        isEqualTo: loggedinUser!.email.toString())
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    return ListView(
+                      children: snapshot.data!.docs.map((doc) {
+                        return Card(
+                          child: ListTile(
+                            title: Text(doc['vehicleMake'].toString() +
+                                ' ' +
+                                doc['vehicleModel']),
+                            subtitle: Text(
+                                doc['vehicleAge'].toString() + ' Years old'),
+                          ),
+                        );
+                      }).toList(),
+                    );
+                  }
+                },
+              )),
+            ],
+          ),
+        ));
   }
 }
 
@@ -27,12 +62,11 @@ class AddVehiclesFormComponent extends StatefulWidget {
 
 class AddVehicleFormState extends State<AddVehiclesFormComponent> {
   final _formKey = GlobalKey<FormState>();
-  final _passKey = GlobalKey<FormFieldState>();
 
   String _model = '';
   String _make = '';
   int _vehicleAge = -1;
-  String _user = 'ravi@gmail.com';
+  String _user = loggedinUser!.email.toString();
 
   @override
   Widget build(BuildContext context) {
@@ -106,14 +140,14 @@ class AddVehicleFormState extends State<AddVehiclesFormComponent> {
         _formKey.currentState?.save();
 
         FirebaseFirestore.instance.collection('driver_automobiles').add({
-          "user_email": "ravi@gmail.com",
+          "user_email": _user,
           "vehicleAge": _vehicleAge,
           "vehicleMake": _make,
           "vehicleModel": _model
         });
 
         ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text('Form Submitted')));
+            .showSnackBar(const SnackBar(content: Text('Vehicle data added')));
       }
     }
 

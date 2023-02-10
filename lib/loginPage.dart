@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginPage> {
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -35,11 +35,11 @@ class _LoginScreenState extends State<LoginPage> {
                     email = value;
                     //Do something with the user input.
                   },
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Enter your email',
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 8.0,
               ),
               TextField(
@@ -49,11 +49,11 @@ class _LoginScreenState extends State<LoginPage> {
                     password = value;
                     //Do something with the user input.
                   },
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Enter your password',
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 24.0,
               ),
               TextButton(

@@ -1,7 +1,12 @@
 import 'package:automobile_doctor/addVehicles.dart';
 import 'package:automobile_doctor/landingScreen.dart';
+import 'package:automobile_doctor/servicePackages.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+// ignore: depend_on_referenced_packages
+import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore: depend_on_referenced_packages
+import "package:firebase_core/firebase_core.dart";
 
 User? loggedinUser;
 
@@ -36,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
         context, MaterialPageRoute(builder: (context) => LandingScreen()));
   }
 
+  String automobileMake = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,30 +50,55 @@ class _HomeScreenState extends State<HomeScreen> {
           automaticallyImplyLeading: true,
           actions: <Widget>[
             IconButton(
-                icon: Icon(Icons.close),
+                icon: Icon(Icons.logout),
+                color: Colors.white,
                 onPressed: () {
                   signOut();
-                  //Implement logout functionality
                 }),
           ],
-          title: Text('Home Page'),
-          backgroundColor: Colors.lightBlueAccent,
-        ),
-        body: Center(
-          child: Container(
-              child: TextButton(
-            child: const Text(
-              "Help",
-              style: TextStyle(fontSize: 25),
-            ),
-            onPressed: () async {
-              //
+          title: Card(
+              child: TextField(
+            decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.search), hintText: 'Search...'),
+            onChanged: (val) {
+              setState(() {
+                automobileMake = val;
+              });
             },
-          )) /* Text(
-          "Welcome " + _auth.currentUser.email,
-          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-        ) */
-          ,
+          )),
+          backgroundColor: Colors.red,
+        ),
+        body: StreamBuilder<QuerySnapshot>(
+          stream: (automobileMake != "")
+              ? FirebaseFirestore.instance
+                  .collection('automobile_doctors')
+                  .where("expertiseLowerCase",
+                      isEqualTo: automobileMake.toLowerCase())
+                  .snapshots()
+              : FirebaseFirestore.instance
+                  .collection('automobile_doctors')
+                  .snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return ListView(
+                children: snapshot.data!.docs.map((doc) {
+                  return Card(
+                    child: ListTile(
+                      title:
+                          Text(doc['name'].toString() + ' - ' + doc['contact']),
+                      subtitle: Text(doc['expertise'].toString() +
+                          ' ' +
+                          doc['address'].toString()),
+                    ),
+                  );
+                }).toList(),
+              );
+            }
+          },
         ),
         drawer: Drawer(
           child: ListView(
@@ -74,9 +106,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('Drawer Header'),
+                    color: Colors.white,
+                    image: const DecorationImage(
+                      image: AssetImage("assets/images/autodoc.png"),
+                      fit: BoxFit.cover,
+                    )),
+                child: Text(' '),
               ),
               ListTile(
                 title: const Text('Add Vehicles'),
@@ -91,13 +126,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ListTile(
                 title: const Text('Service Packages'),
                 onTap: () {
-                  /*  Navigator.pop(context);
+                  Navigator.pop(context);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            const CreatePatientRegistrations()),
-                  ); */
+                        builder: (context) => const ViewServicePackages()),
+                  );
                 },
               ),
             ],

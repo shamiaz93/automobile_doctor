@@ -12,7 +12,7 @@ class LandingScreen extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: const Icon(
-              Icons.supervised_user_circle,
+              Icons.login,
               color: Colors.white,
             ),
             onPressed: () {
@@ -33,7 +33,7 @@ class LandingScreen extends StatelessWidget {
               child: Image.asset("assets/images/img1.jpg"),
               elevation: 10,
             ),
-            const Padding(
+            /* const Padding(
               padding: EdgeInsets.only(bottom: 15),
             ),
             Card(
@@ -46,9 +46,9 @@ class LandingScreen extends StatelessWidget {
             Card(
               child: Image.asset("assets/images/img3.jpg"),
               elevation: 10,
-            ),
+            ), */
             const Padding(
-              padding: EdgeInsets.only(bottom: 30),
+              padding: EdgeInsets.only(bottom: 10),
             ),
           ],
         ),
