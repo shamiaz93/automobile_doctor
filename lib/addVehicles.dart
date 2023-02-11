@@ -21,7 +21,7 @@ class AddVehicles extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 350, child: AddVehiclesFormComponent()),
+              SizedBox(height: 355, child: AddVehiclesFormComponent()),
               Expanded(
                   child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
@@ -111,7 +111,7 @@ class _AddVehiclesState extends State<AddVehiclesFormComponent> {
               Stack(
                 children: [
                   Container(
-                    height: 345,
+                    height: 350,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: HexColor("#ffffff"), //Colors.red[50],
@@ -132,7 +132,7 @@ class _AddVehiclesState extends State<AddVehiclesFormComponent> {
                               children: [
                                 MyTextField(
                                   controller: makeController,
-                                  hintText: "Vehicke Make",
+                                  hintText: "Vehicle Make",
                                   obscureText: false,
                                   prefixIcon: const Icon(Icons.car_repair),
                                 ),

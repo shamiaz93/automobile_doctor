@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           automaticallyImplyLeading: true,
           actions: <Widget>[
             IconButton(
-                icon: Icon(Icons.logout),
+                icon: const Icon(Icons.logout),
                 color: Colors.white,
                 onPressed: () {
                   signOut();
@@ -85,16 +85,18 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             } else {
               return ListView(
+                padding: const EdgeInsets.all(8),
                 children: snapshot.data!.docs.map((doc) {
                   return Card(
-                    child: ListTile(
-                      title:
-                          Text(doc['name'].toString() + ' - ' + doc['contact']),
-                      subtitle: Text(doc['expertise'].toString() +
-                          ' ' +
-                          doc['address'].toString()),
-                    ),
-                  );
+                      child: ListTile(
+                    title: Text(doc['name'].toString()),
+                    subtitle: Text(
+                        'Expert technician for ' + doc['expertise'].toString()),
+                    leading: const CircleAvatar(
+                        backgroundImage:
+                            AssetImage("assets/images/profile.png")),
+                    trailing: Text(doc['contact']),
+                  ));
                 }).toList(),
               );
             }
@@ -107,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const DrawerHeader(
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    image: const DecorationImage(
+                    image: DecorationImage(
                       image: AssetImage("assets/images/autodoc.png"),
                       fit: BoxFit.cover,
                     )),

@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginPage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+        padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
         shrinkWrap: true,
         reverse: true,
         children: [
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginPage> {
               Stack(
                 children: [
                   Container(
-                    height: 530,
+                    height: 550,
                     width: 400,
                     decoration: BoxDecoration(
                       color: Colors.red[50], //HexColor("#ffffff"),

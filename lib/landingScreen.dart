@@ -25,31 +25,11 @@ class LandingScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.only(bottom: 10),
-            ),
-            Card(
-              child: Image.asset("assets/images/img1.jpg"),
-              elevation: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 10),
-            ),
-            Card(
-              child: Image.asset("assets/images/img2.jpg"),
-              elevation: 10,
-            ),
-            /* const Padding(
-              padding: EdgeInsets.only(bottom: 15),
-            ),
-            Card(
-              child: Image.asset("assets/images/img3.jpg"),
-              elevation: 10,
-            ), */
-            const Padding(
-              padding: EdgeInsets.only(bottom: 10),
-            ),
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset('assets/images/carDet3.jpg'),
+            Image.asset('assets/images/carDet2.jpg'),
+            /*Image.asset('assets/images/carDet1.jpg'), */
           ],
         ),
       ),
