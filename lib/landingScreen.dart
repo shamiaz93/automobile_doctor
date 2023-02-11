@@ -7,6 +7,7 @@ class LandingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text("Automobile Doctor"),
         backgroundColor: Colors.red,
         actions: <Widget>[
@@ -18,7 +19,6 @@ class LandingScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => LoginPage()));
-              //Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegistrationScreen()));
             },
           )
         ],
@@ -27,20 +27,20 @@ class LandingScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             const Padding(
-              padding: EdgeInsets.only(bottom: 30),
+              padding: EdgeInsets.only(bottom: 10),
             ),
             Card(
               child: Image.asset("assets/images/img1.jpg"),
               elevation: 10,
             ),
-            /* const Padding(
-              padding: EdgeInsets.only(bottom: 15),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 10),
             ),
             Card(
               child: Image.asset("assets/images/img2.jpg"),
               elevation: 10,
             ),
-            const Padding(
+            /* const Padding(
               padding: EdgeInsets.only(bottom: 15),
             ),
             Card(
