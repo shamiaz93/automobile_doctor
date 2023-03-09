@@ -28,8 +28,8 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
-dependencies:
-  flutter:
+dev_dependencies:
+  flutter_test:
     sdk: flutter
 
 
@@ -38,11 +38,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3
   hexcolor: ^3.0.1
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
   easy_splash_screen: ^1.0.4
   firebase_core: ^2.4.1
   firebase_auth: ^4.2.5

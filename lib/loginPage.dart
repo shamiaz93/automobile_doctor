@@ -44,6 +44,7 @@ class _LoginScreenState extends State<LoginPage> {
 
   String _errorMessage = "";
 
+
   void validateEmail(String val) {
     if (val.isEmpty) {
       setState(() {
