@@ -13,7 +13,7 @@ import 'package:automobile_doctor/main.dart';
 void main() {
   testWidgets('has title and Icons', (WidgetTester tester) async {
         await  tester.pumpWidget(MaterialApp(
-    home: SplashPage(),
+   // home: SplashPage(),
     ));
     
     expect(find.text('We serve you at your choice of location'), findsOneWidget);

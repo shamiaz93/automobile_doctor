@@ -19,7 +19,7 @@ void main() {
              logoWidth: 90,
              title: Text(
              "We serve you at your choice of location",
-             style: TextStyle(
+             style:  TextStyle(
              fontSize: 18,
              fontWeight: FontWeight.bold,
                 ),

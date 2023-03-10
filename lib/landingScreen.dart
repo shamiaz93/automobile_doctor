@@ -5,7 +5,8 @@ import 'loginPage.dart';
 class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+    home: Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text("Automobile Doctor"),
@@ -13,8 +14,9 @@ class LandingScreen extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: const Icon(
-              Icons.login,
-              color: Colors.white,
+              Icons.login,            
+              color: Colors.white,             
+          
             ),
             onPressed: () {
               Navigator.of(context)
@@ -33,6 +35,7 @@ class LandingScreen extends StatelessWidget {
           ],
         ),
       ),
+    )
     );
   }
 }
