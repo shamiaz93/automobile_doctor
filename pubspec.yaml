@@ -30,7 +30,9 @@ environment:
 # versions available, run `flutter pub outdated`.
 dev_dependencies:
   flutter_test:
-    sdk: flutter
+    sdk: flutter 
+  mockito: ^5.2.0  
+   
 
 
   # The following adds the Cupertino Icons font to your application.

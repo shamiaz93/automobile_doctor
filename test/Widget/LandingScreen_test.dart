@@ -9,7 +9,7 @@ void main() {
   testWidgets('Landing screen has app bar  ',  (WidgetTester tester)  async {  
    await tester.pumpWidget( LandingScreen());
    var finder=find.byIcon(Icons.login);   
-    expect(find.text('login'),findsNothing);    
+    expect(find.text('login'),findsOneWidget);    
        
   });
 
