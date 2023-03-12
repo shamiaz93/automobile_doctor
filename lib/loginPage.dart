@@ -2,7 +2,7 @@ import 'package:automobile_doctor/customButton.dart';
 import 'package:automobile_doctor/customTextField.dart';
 import 'package:automobile_doctor/homeScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+//import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:automobile_doctor/signupForm.dart';
 import 'package:flutter/material.dart';
 import 'landingScreen.dart';
